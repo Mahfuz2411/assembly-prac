@@ -1,0 +1,59 @@
+ORG 100H
+INCLUDE 'EMU8086.INC'
+
+ARR DB 50 DUP(?)
+
+PRINT 'SIZE OF THE ARRAY: $'
+CALL SCAN_NUM
+MOV DX,CX
+PRINTN
+
+MOV SI,0
+
+INPUT:        
+    XOR CX,CX
+    PRINT 'VALUE: $'
+    CALL SCAN_NUM   
+    
+    MOV ARR[SI],CL
+    INC SI
+    PRINTN
+    
+    CMP SI,DX
+    JE INPUT_DONE
+    
+    JMP INPUT   
+    
+INPUT_DONE:
+    MOV SI,0
+    PRINTN   
+    PRINT 'INPUT OK!'
+    PRINTN 
+    
+    PRINT 'YOUR ARRAY: '    
+    JMP OUTPUT
+
+OUTPUT: 
+    MOV AL,ARR[SI]
+    CALL PRINT_NUM_UNS   
+    PRINT ' '
+    
+    INC SI
+    
+    CMP SI, DX
+    JE DONE
+    
+    JMP OUTPUT
+    
+    
+DONE:    
+    
+
+
+
+PRINTN
+PRINTN
+PRINT 'THANKS FOR RUN THIS CODE...$'
+DEFINE_SCAN_NUM      
+DEFINE_PRINT_NUM_UNS
+END
