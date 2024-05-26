@@ -1,18 +1,3 @@
-;org 100h
-;include 'emu8086.inc'
-
-;MOV AX, 25  ; Load AX with 25
-;MOV BX, 5   ; Load BX with 5 (divisor)
-;XOR DX, DX  ; Clear DX to avoid division errors
-;DIV BX      ; Divide AX by BX (25 / 5)
-
-;CALL PRINT_NUM_UNS ; Print the result (5)
-
-;define_print_num_uns
-;end 
-
-
-
 ORG 100H
 INCLUDE 'EMU8086.INC'
 
@@ -43,9 +28,6 @@ DIV CX         ; DIVIDE AX BY CX
 PRINT 'RESULT: $'
 CALL PRINT_NUM_UNS   
 PRINTN
-
-
-
 
 
 PRINT 'THANKS FOR RUN THIS CODE...$'
